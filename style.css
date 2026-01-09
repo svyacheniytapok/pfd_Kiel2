@@ -13,9 +13,14 @@ body {
     line-height: 1.6;
     scroll-behavior: smooth;
     background: transparent;
+    
+    /* Прижимаем футер к низу */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* ЗАГЛУШКИ ДЛЯ ФОТО (Серые блоки) */
+/* ЗАГЛУШКИ ДЛЯ ФОТО */
 .img-placeholder {
     background-color: #e0e0e0;
     display: flex;
@@ -116,7 +121,28 @@ nav a:hover { color: var(--gold-solid); }
 .info-row strong { display: block; font-size: 12px; color: var(--gold-solid); letter-spacing: 2px; margin-bottom: 5px; }
 .info-row span { font-size: 18px; color: var(--dark); font-weight: 600; }
 
-footer { padding: 40px; text-align: center; background: var(--dark); color: #fff; font-size: 14px; }
+/* СТИЛИ ДЛЯ ЮРИДИЧЕСКИХ СТРАНИЦ */
+.legal-section {
+    padding: 120px 20px 60px 20px;
+    flex: 1; /* Растягивается, чтобы футер был внизу */
+}
+
+.legal-card {
+    background: white;
+    padding: 60px;
+    border-top: 5px solid var(--gold-solid);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+    max-width: 900px;
+    margin: 0 auto;
+}
+.legal-card h1 { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--dark); margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+.legal-card h2 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--dark); margin-top: 30px; margin-bottom: 15px; }
+.legal-card h3 { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+.legal-card p { margin-bottom: 15px; color: #555; font-size: 15px; }
+.legal-card a { color: var(--gold-solid); text-decoration: underline; }
+
+/* ФУТЕР */
+footer { padding: 40px; text-align: center; background: var(--dark); color: #fff; font-size: 14px; margin-top: auto; }
 footer a { color: #ccc; text-decoration: none; margin: 0 10px; transition: 0.3s; }
 footer a:hover { color: var(--gold-solid); }
 footer p { margin-top: 15px; opacity: 0.5; }
@@ -135,36 +161,53 @@ footer p { margin-top: 15px; opacity: 0.5; }
 
 @media (max-width: 768px) {
     
-    /* ШАПКА: Без бургера, всё в столбик */
+    /* ШАПКА: Аккуратная, без "комичных" кнопок */
     .luxury-nav {
         position: relative; /* Не фиксируем */
         background: #fff;
+        padding-bottom: 10px;
     }
     
     .nav-container {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
         padding: 15px;
     }
+
+    .logo {
+        font-size: 22px;
+        align-items: center;
+    }
+    .logo span { text-align: center; }
 
     nav {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
+        gap: 20px;
+        width: 100%;
+        margin-top: 5px;
     }
 
+    /* Элегантные текстовые ссылки на мобильном */
     nav a {
-        padding: 8px 15px;
-        background: #f8f8f8;
-        border-radius: 4px;
+        background: none;
+        padding: 0;
+        border-radius: 0;
         font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
         color: var(--dark);
+    }
+    
+    nav a:hover, nav a:active {
+        color: var(--gold-solid);
     }
 
     /* ГЛАВНЫЙ ЭКРАН */
     .hero-split {
-        flex-direction: column; /* Текст сверху, фото снизу */
+        flex-direction: column;
         padding-top: 0;
     }
 
@@ -175,7 +218,7 @@ footer p { margin-top: 15px; opacity: 0.5; }
 
     .hero-image-side {
         width: 100%;
-        min-height: 250px; /* Уменьшаем высоту заглушки */
+        min-height: 250px;
     }
 
     .hero-text-inner h1 { font-size: 34px; }
@@ -201,47 +244,13 @@ footer p { margin-top: 15px; opacity: 0.5; }
     .contact-details {
         padding: 30px 20px;
     }
-
-}
-/* --- АДАПТАЦИЯ ЮРИДИЧЕСКИХ СТРАНИЦ (Impressum/Datenschutz) --- */
-@media (max-width: 768px) {
-    /* Уменьшаем огромные отступы вокруг белого блока */
+    
+    /* ЮРИДИЧЕСКИЕ СТРАНИЦЫ */
     .legal-section {
-        padding: 80px 15px 40px 15px; /* Сверху место для шапки, по бокам узко */
+        padding: 40px 15px;
     }
-
-    /* Внутри карточки тоже убираем лишний воздух */
     .legal-card {
-        padding: 25px 20px;
-        width: 100%;
-        margin-top: 20px;
+        padding: 30px 20px;
     }
-
-    /* Уменьшаем гигантские заголовки */
-    .legal-card h1 {
-        font-size: 28px;
-        margin-bottom: 25px;
-        word-wrap: break-word; /* Чтобы длинные слова не ломали экран */
-    }
-
-    .legal-card h2 {
-        font-size: 20px;
-        margin-top: 25px;
-    }
-
-    /* Делаем текст читаемым на маленьком экране */
-    .legal-card p, .legal-card li {
-        font-size: 14px;
-        line-height: 1.6;
-        text-align: left;
-    }
-
-    /* Ссылка "Назад" в шапке */
-    .luxury-nav nav a {
-        background: #f4f4f4;
-        display: inline-block;
-        margin-top: 10px;
-        width: 100%;
-        text-align: center;
-    }
+    .legal-card h1 { font-size: 28px; }
 }
