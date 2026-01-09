@@ -1,0 +1,204 @@
+:root {
+    --dark: #1a2a30;
+    --gold: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    --gold-solid: #b38728;
+    --text-color: #333;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    background: transparent;
+}
+
+/* ЗАГЛУШКИ ДЛЯ ФОТО (Серые блоки) */
+.img-placeholder {
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #777;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+}
+.hero-placeholder { height: 100%; min-height: 400px; }
+.card-placeholder { height: 250px; }
+
+/* ЗОЛОТАЯ ПЫЛЬ */
+#luxury-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background: linear-gradient(to bottom, #fffaf0, #ffffff);
+}
+
+/* ШАПКА */
+.luxury-nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+.nav-container {
+    max-width: 1300px; margin: 0 auto; padding: 15px 30px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo { 
+    font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; 
+    color: var(--dark); display: flex; flex-direction: column; line-height: 1;
+}
+.logo span { font-size: 12px; font-family: 'Inter', sans-serif; color: var(--gold-solid); margin-top: 5px; text-transform: uppercase; letter-spacing: 2px;}
+
+nav { display: flex; gap: 30px; }
+nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 14px; text-transform: uppercase; transition: 0.3s; position: relative; }
+nav a:hover { color: var(--gold-solid); }
+
+/* HERO */
+.hero-split { display: flex; min-height: 90vh; padding-top: 80px; align-items: stretch; }
+.hero-content { flex: 1; padding: 5% 8%; background: rgba(255,255,255,0.6); display: flex; align-items: center; }
+.hero-text-inner h1 { font-family: 'Playfair Display', serif; font-size: 60px; line-height: 1.1; margin: 20px 0; color: var(--dark); }
+.hero-text-inner i { color: var(--gold-solid); }
+.gold-label { color: var(--gold-solid); letter-spacing: 3px; font-weight: bold; font-size: 11px; text-transform: uppercase; }
+
+.hero-image-side { flex: 1; position: relative; }
+.image-overlay {
+    position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to right, rgba(255,255,255,0.6), transparent);
+}
+
+/* О НАС */
+.info-section { padding: 80px 20px; }
+.container { max-width: 1200px; margin: 0 auto; }
+.centered-title { text-align: center; margin-bottom: 60px; }
+.centered-title h2 { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--dark); }
+.subtitle { font-size: 18px; color: #666; max-width: 600px; margin: 0 auto; }
+.gold-line-center { width: 80px; height: 3px; background: var(--gold); margin: 20px auto; }
+
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.info-card {
+    background: white; padding: 30px; border-top: 3px solid var(--gold-solid);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;
+}
+.info-card h3 { font-family: 'Playfair Display', serif; margin-bottom: 15px; color: var(--dark); }
+
+/* УСЛУГИ */
+.services-luxe { padding: 80px 20px; }
+.luxe-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+.luxe-card {
+    flex: 1; min-width: 300px; background: white; border: 1px solid #eee;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08); transition: transform 0.4s; border-radius: 8px; overflow: hidden; position: relative;
+}
+.luxe-card:hover { transform: translateY(-10px); }
+.card-num {
+    position: absolute; top: 15px; right: 20px; font-family: 'Playfair Display', serif;
+    font-size: 50px; color: rgba(179, 135, 40, 0.15); z-index: 2;
+}
+
+.card-info { padding: 30px; }
+.card-info h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--dark); margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+.card-info ul { padding-left: 20px; }
+.card-info li { margin-bottom: 10px; color: #555; }
+
+/* КОНТАКТЫ */
+.contact-luxe { padding: 80px 20px; margin-bottom: 40px; }
+.contact-box {
+    max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; background: white;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;
+}
+.contact-visual { flex: 1; min-width: 300px; min-height: 400px; }
+.contact-details { flex: 1; min-width: 300px; padding: 60px; background: #fff; }
+.info-row { margin-bottom: 30px; border-left: 3px solid var(--gold-solid); padding-left: 20px; }
+.info-row strong { display: block; font-size: 12px; color: var(--gold-solid); letter-spacing: 2px; margin-bottom: 5px; }
+.info-row span { font-size: 18px; color: var(--dark); font-weight: 600; }
+
+footer { padding: 40px; text-align: center; background: var(--dark); color: #fff; font-size: 14px; }
+footer a { color: #ccc; text-decoration: none; margin: 0 10px; transition: 0.3s; }
+footer a:hover { color: var(--gold-solid); }
+footer p { margin-top: 15px; opacity: 0.5; }
+
+/* =========================================
+   АДАПТАЦИЯ (Мобильные и Планшеты)
+   ========================================= */
+
+@media (max-width: 1024px) {
+    .hero-text-inner h1 { font-size: 50px; }
+    .hero-split { height: auto; padding-top: 100px; }
+    .hero-image-side { min-height: 400px; }
+    .nav-container { padding: 15px 20px; }
+    nav a { margin: 0; font-size: 13px; }
+}
+
+@media (max-width: 768px) {
+    
+    /* ШАПКА: Без бургера, всё в столбик */
+    .luxury-nav {
+        position: relative; /* Не фиксируем */
+        background: #fff;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        padding: 8px 15px;
+        background: #f8f8f8;
+        border-radius: 4px;
+        font-size: 12px;
+        color: var(--dark);
+    }
+
+    /* ГЛАВНЫЙ ЭКРАН */
+    .hero-split {
+        flex-direction: column; /* Текст сверху, фото снизу */
+        padding-top: 0;
+    }
+
+    .hero-content {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .hero-image-side {
+        width: 100%;
+        min-height: 250px; /* Уменьшаем высоту заглушки */
+    }
+
+    .hero-text-inner h1 { font-size: 34px; }
+    .gold-label { font-size: 10px; }
+
+    /* КАРТОЧКИ В СТОЛБИК */
+    .luxe-grid, .info-grid {
+        flex-direction: column;
+    }
+
+    .luxe-card, .info-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* КОНТАКТЫ */
+    .contact-box {
+        flex-direction: column;
+    }
+    .contact-visual {
+        height: 250px;
+    }
+    .contact-details {
+        padding: 30px 20px;
+    }
+}
