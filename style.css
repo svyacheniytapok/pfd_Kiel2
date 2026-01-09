@@ -201,4 +201,47 @@ footer p { margin-top: 15px; opacity: 0.5; }
     .contact-details {
         padding: 30px 20px;
     }
+
+}
+/* --- АДАПТАЦИЯ ЮРИДИЧЕСКИХ СТРАНИЦ (Impressum/Datenschutz) --- */
+@media (max-width: 768px) {
+    /* Уменьшаем огромные отступы вокруг белого блока */
+    .legal-section {
+        padding: 80px 15px 40px 15px; /* Сверху место для шапки, по бокам узко */
+    }
+
+    /* Внутри карточки тоже убираем лишний воздух */
+    .legal-card {
+        padding: 25px 20px;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Уменьшаем гигантские заголовки */
+    .legal-card h1 {
+        font-size: 28px;
+        margin-bottom: 25px;
+        word-wrap: break-word; /* Чтобы длинные слова не ломали экран */
+    }
+
+    .legal-card h2 {
+        font-size: 20px;
+        margin-top: 25px;
+    }
+
+    /* Делаем текст читаемым на маленьком экране */
+    .legal-card p, .legal-card li {
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    /* Ссылка "Назад" в шапке */
+    .luxury-nav nav a {
+        background: #f4f4f4;
+        display: inline-block;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
 }
